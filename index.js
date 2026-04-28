@@ -9,16 +9,21 @@ const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT
 });
 
 app.get('/clientes', (req, res) => {
   db.query('SELECT * FROM clientes', (err, results) => {
-    if (err) return res.status(500).json({ error: err.message });
-    res.json(results);
+    if (error) {
+      console.error('Error al consultar clientes:', error);
+      return res.status(500).json({ success: false, message: 'Error interno del servidor' });
+    }
+    res.json({ success: true, datos: results });
   });
 });
 
 app.listen(port, () => {
   console.log(`API running on port ${port}`);
 });
+
