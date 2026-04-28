@@ -1,0 +1,13 @@
+services:
+
+  mi-api:
+    image: yurbendock/clientes-backend
+    container_name: tst-api
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: localhost
+      DB_USER: root
+      DB_NAME: clientes_db
+      DB_PASSWORD: ""
+      DB_PORT: 3306

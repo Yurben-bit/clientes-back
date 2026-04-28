@@ -14,7 +14,7 @@ const db = mysql.createConnection({
 });
 
 app.get('/clientes', (req, res) => {
-  db.query('SELECT * FROM clientes', (err, results) => {
+  db.query('SELECT * FROM clientes', (error, results) => {
     if (error) {
       console.error('Error al consultar clientes:', error);
       return res.status(500).json({ success: false, message: 'Error interno del servidor' });
