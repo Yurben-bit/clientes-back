@@ -25,7 +25,7 @@ app.get('/clientes', (req, res) => {
   });
 });
 
-app.listen(port, () => {
+app.listen("0.0.0.0", port, () => {
   console.log(`API running on port ${port}`);
 });
 
