@@ -1,13 +1,21 @@
 services:
 
   mi-api:
-    image: yurbendock/clientes-backend
+    image: yurbendock/clientes-backend:latest
     container_name: tst-api
     ports:
       - "3000:3000"
     environment:
-      DB_HOST: localhost
+      DB_HOST: host.docker.internal
       DB_USER: root
       DB_NAME: clientes_db
       DB_PASSWORD: ""
       DB_PORT: 3306
+
+  mi-front:
+    image: yurbendock/clientes-front:latest
+    container_name: tst-front
+    ports:
+      - "3001:80"
+    environment:
+      VITE_API_URL: http://mi-api:6000
