@@ -25,7 +25,7 @@ app.get('/clientes', (req, res) => {
   });
 });
 
-app.listen("0.0.0.0", port, () => {
-  console.log(`ola ${port}`);
+app.listen(port, "0.0.0.0", () => {
+  console.log(`ola burra de color ${port}`);
 });
 
